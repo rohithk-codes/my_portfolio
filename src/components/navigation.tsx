@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
+import  ThemeToggle  from "../context/ThemeToggle"
 
 export  function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
