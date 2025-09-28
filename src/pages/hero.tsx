@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
-
+import ThreeD from "@/components/3dscene"
 export function Hero() {
   return (
     <section
       id="home"
       className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background to-muted"
     >
+      
+  <ThreeD />
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 text-balance">
@@ -49,3 +52,6 @@ export function Hero() {
     </section>
   )
 }
+
+
+
