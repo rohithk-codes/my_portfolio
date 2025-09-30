@@ -20,7 +20,7 @@ export function Skills() {
       ],
     },
     {
-      title: "Tools & Technologies",
+      title: "Tools & Technology",
       skills: [
         { name: "Git/GitHub", level: 93 },
         { name: "AWS", level: 75 },
