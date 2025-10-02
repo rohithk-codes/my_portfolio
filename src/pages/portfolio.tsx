@@ -22,42 +22,42 @@ export function Portfolio() {
       liveUrl: "https://rajadhanirooms.online",
       githubUrl: "#",
     },
-    {
-      title: "Weather Dashboard",
-      description:
-        "Beautiful weather application with location-based forecasts, interactive maps, and detailed analytics.",
-      image: "/preview/project4.png",
-      tags: ["Vue.js", "D3.js", "Weather API", "Tailwind"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Social Media Analytics",
-      description:
-        "Comprehensive analytics platform for social media management with real-time insights and reporting.",
-      image: "/social-media-analytics-dashboard.png",
-      tags: ["React", "FastAPI", "Chart.js"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Learning Management System",
-      description:
-        "Educational platform with course management, progress tracking, and interactive learning modules.",
-      image: "/lms-interface.png",
-      tags: ["Next.js", "Prisma", "PostgreSQL", "Tailwind"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Real Estate Platform",
-      description:
-        "Property listing and management platform with advanced search, virtual tours, and agent tools.",
-      image: "/real-estate-website.png",
-      tags: ["React", "Express", "MongoDB", "Mapbox"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
+    // {
+    //   title: "Weather Dashboard",
+    //   description:
+    //     "Beautiful weather application with location-based forecasts, interactive maps, and detailed analytics.",
+    //   image: "/preview/project4.png",
+    //   tags: ["Vue.js", "D3.js", "Weather API", "Tailwind"],
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    // },
+    // {
+    //   title: "Social Media Analytics",
+    //   description:
+    //     "Comprehensive analytics platform for social media management with real-time insights and reporting.",
+    //   image: "/social-media-analytics-dashboard.png",
+    //   tags: ["React", "FastAPI", "Chart.js"],
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    // },
+    // {
+    //   title: "Learning Management System",
+    //   description:
+    //     "Educational platform with course management, progress tracking, and interactive learning modules.",
+    //   image: "/lms-interface.png",
+    //   tags: ["Next.js", "Prisma", "PostgreSQL", "Tailwind"],
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    // },
+    // {
+    //   title: "Real Estate Platform",
+    //   description:
+    //     "Property listing and management platform with advanced search, virtual tours, and agent tools.",
+    //   image: "/real-estate-website.png",
+    //   tags: ["React", "Express", "MongoDB", "Mapbox"],
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    // },
   ];
 
   return (
