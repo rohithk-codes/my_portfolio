@@ -33,13 +33,13 @@ export function Hero() {
           </div>
 
           <div className="flex justify-center space-x-6 mb-16">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="https://github.com/rohithk-codes" className="text-muted-foreground hover:text-primary transition-colors">
               <Github className="h-6 w-6" />
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="http://www.linkedin.com/in/rohithkrishnan1" className="text-muted-foreground hover:text-primary transition-colors">
               <Linkedin className="h-6 w-6" />
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="rohithk.krishnan@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
               <Mail className="h-6 w-6" />
             </a>
           </div>

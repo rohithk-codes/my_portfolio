@@ -11,7 +11,7 @@ export function Testimonials() {
       name: "Sarah Johnson",
       role: "Product Manager at TechCorp",
       content:
-        "Alex delivered exceptional work on our e-commerce platform. His attention to detail and technical expertise made the project a huge success.",
+        "Rohith delivered exceptional work on our e-commerce platform. His attention to detail and technical expertise made the project a huge success.",
       rating: 5,
       avatar: "/professional-woman-headshot.png",
     },
@@ -19,7 +19,7 @@ export function Testimonials() {
       name: "Michael Chen",
       role: "CEO at StartupXYZ",
       content:
-        "Working with Alex was a game-changer for our startup. He transformed our ideas into a beautiful, functional application that our users love.",
+        "Working with Rohith was a game-changer for our startup. He transformed our ideas into a beautiful, functional application that our users love.",
       rating: 5,
       avatar: "/professional-man-headshot.png",
     },
@@ -27,7 +27,7 @@ export function Testimonials() {
       name: "Emily Rodriguez",
       role: "Design Director at CreativeAgency",
       content:
-        "Alex has an incredible ability to bring designs to life. His code is clean, his communication is excellent, and he always delivers on time.",
+        "Rohith has an incredible ability to bring designs to life. His code is clean, his communication is excellent, and he always delivers on time.",
       rating: 5,
       avatar: "/professional-woman-designer-headshot.png",
     },
