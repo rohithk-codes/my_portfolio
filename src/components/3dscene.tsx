@@ -13,12 +13,12 @@ function GreenCube() {
 
 export default function Green3DScene() {
   return (
-    <div className="w-full h-[500px]">
+    <div className="w-full h-[300px] md:h-[400px] lg:h-[500px]">
       <Canvas camera={{ position: [5, 5, 5] }}>
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={1.5} />
         <GreenCube />
-        <OrbitControls enableZoom={true} />
+        <OrbitControls enableZoom={true} enablePan={false} />
       </Canvas>
     </div>
   );

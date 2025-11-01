@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, Phone, Send } from "lucide-react"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -19,8 +19,27 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
+    
+    // Encode form data for Gmail URL
+    const recipient = "rohithk.krishnan@gmail.com"
+    const subject = encodeURIComponent(formData.subject)
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    )
+    
+    // Create Gmail compose URL
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`
+    
+    // Open Gmail in a new tab
+    window.open(gmailUrl, "_blank")
+    
+    // Reset form after redirect
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -126,7 +145,9 @@ export function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">rohithkrishnan.official@gmail.com</p>
+                   
+                     <a href="mailto:rohithk.krishnan@gmail.com">rohithk.krishnan@gmail.com</a>
+                     
                   </div>
                 </div>
               </CardContent>
@@ -146,7 +167,7 @@ export function Contact() {
               </CardContent>
             </Card>
 
-            <Card>
+            {/* <Card>
               <CardContent className="p-6">
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="flex-shrink-0">
@@ -158,7 +179,7 @@ export function Contact() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </div>
       </div>
