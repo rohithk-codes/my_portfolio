@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
-import ThreeD from "@/components/3dscene"
 import ComputersCanvas from "@/components/canvas/computer"
 export function Hero() {
   const handleDownloadResume = () => {

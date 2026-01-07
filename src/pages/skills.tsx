@@ -1,30 +1,50 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+import { 
+  SiReact, 
+  SiTypescript, 
+  SiTailwindcss, 
+  SiNodedotjs, 
+  SiPostgresql, 
+  SiMongodb, 
+  SiGithub, 
+  SiAmazonwebservices, 
+  SiFigma,
+  SiJavascript,
+ 
+  SiExpress,
+  SiRedux
+} from "react-icons/si"
 
 export function Skills() {
   const skillCategories = [
     {
       title: "Frontend Development",
       skills: [
-        { name: "React", level: 95 },
-        { name: "TypeScript", level: 90 },
-        { name: "Tailwind CSS", level: 92 },
+        { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
+       
+       
+        { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#06B6D4]" /> },
+        { name: "Redux", icon: <SiRedux className="text-[#764ABC]" /> },
       ],
     },
     {
       title: "Backend Development",
       skills: [
-        { name: "Node.js", level: 88 },
-        { name: "PostgreSQL", level: 85 },
-        { name: "MongoDB", level: 80 },
+        { name: "Node.js", icon: <SiNodedotjs className="text-[#339933]" /> },
+        { name: "Express", icon: <SiExpress className="text-foreground" /> },
+        { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
+        { name: "PostgreSQL", icon: <SiPostgresql className="text-[#4169E1]" /> },
+        
+     
       ],
     },
     {
       title: "Tools & Technologies",
       skills: [
-        { name: "Git/GitHub", level: 93 },
-        { name: "AWS", level: 75 },
-        { name: "Figma", level: 88 },
+        { name: "GitHub", icon: <SiGithub className="text-foreground" /> },
+        { name: "AWS", icon: <SiAmazonwebservices className="text-[#FF9900]" /> },
+        { name: "Figma", icon: <SiFigma className="text-[#F24E1E]" /> },
       ],
     },
   ]
@@ -42,20 +62,28 @@ export function Skills() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <Card key={index}>
+            <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/10 hover:border-primary/30 transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-xl text-foreground">{category.title}</CardTitle>
+                <CardTitle className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
+                  {category.title}
+                </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-4">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div
+                      key={skillIndex}
+                      className="group flex flex-col items-center justify-center p-3 rounded-xl bg-muted/50 hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
+                    >
+                      <div className="text-3xl mb-2 transition-transform duration-300 group-hover:scale-110">
+                        {skill.icon}
+                      </div>
+                      <span className="text-[10px] font-medium text-center text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                        {skill.name}
+                      </span>
                     </div>
-                    <Progress value={skill.level} className="h-2" />
-                  </div>
-                ))}
+                  ))}
+                </div>
               </CardContent>
             </Card>
           ))}
