@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { 
   SiReact, 
-  SiTypescript, 
   SiTailwindcss, 
   SiNodedotjs, 
   SiPostgresql, 
@@ -10,7 +9,6 @@ import {
   SiAmazonwebservices, 
   SiFigma,
   SiJavascript,
- 
   SiExpress,
   SiRedux
 } from "react-icons/si"
