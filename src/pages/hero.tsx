@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import ThreeD from "@/components/3dscene"
-
+import ComputersCanvas from "@/components/canvas/computer"
 export function Hero() {
   const handleDownloadResume = () => {
     // Create a link element
@@ -56,8 +56,8 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="order-1 md:order-2 w-full">
-            <ThreeD />
+          <div className="order-1 md:order-2 w-full h-full">
+            <ComputersCanvas />
           </div>
         </div>
       </div>
