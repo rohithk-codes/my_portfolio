@@ -1,6 +1,9 @@
+import { Suspense, lazy } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
-import ComputersCanvas from "@/components/canvas/computer"
+
+const ComputersCanvas = lazy(() => import("@/components/canvas/computer"))
+
 export function Hero() {
   const handleDownloadResume = () => {
     // Create a link element
@@ -25,7 +28,7 @@ export function Hero() {
                 Hi, I'm <span className="text-primary">Rohith Krishnan</span>
               </h1>
               <p className="text-xl sm:text-2xl text-muted-foreground mb-8 text-pretty">
-                Full-Stack Developer 
+                Full-Stack Developer
               </p>
               <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto md:mx-0 text-pretty">
                 I create beautiful, functional, and user-centered digital experiences that solve real-world problems with
@@ -56,7 +59,9 @@ export function Hero() {
           </div>
 
           <div className="order-1 md:order-2 w-full h-full">
-            <ComputersCanvas />
+            <Suspense fallback={<div className="w-full h-full flex items-center justify-center">Loading...</div>}>
+              <ComputersCanvas />
+            </Suspense>
           </div>
         </div>
       </div>

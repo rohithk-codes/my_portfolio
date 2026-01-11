@@ -1,5 +1,3 @@
-"use client"
-
 
 import { useState } from "react"
 import { useForm } from "react-hook-form"
@@ -13,10 +11,44 @@ import { Mail, Phone, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-re
 import emailjs from "@emailjs/browser"
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  subject: z.string().min(5, "Subject must be at least 5 characters"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+ name: z
+    .string()
+    .trim()
+    .nonempty("Please enter name")
+    .min(3, "Name must be at least 3 characters")
+    .max(50, "Name must be less than 50 characters")
+    .regex(/^[a-zA-Z\s]+$/, "Name should contain only letters"),
+  email: z
+    .string()
+    .trim()
+    .nonempty("Please enter email")
+    .email("Invalid email format")
+    .max(100, "Email too long")
+    .refine(
+      (val) => !val.startsWith("0"),
+      "Email should not start with 0"
+    ),
+subject: z
+    .string()
+    .trim()
+    .nonempty("Please enter subject")
+    .min(5, "Subject too short")
+    .max(100, "Subject too long")
+    .refine(
+      (val) => !val.startsWith("0"),
+      "Subject should not start with 0"
+    ),
+
+  message: z
+    .string()
+    .trim()
+     .nonempty("Please enter message")
+    .min(10, "Message too short")
+    .max(1000, "Message too long")
+    .refine(
+      (val) => !val.startsWith("0"),
+      "Message should not start with 0"
+    )
 })
 
 type ContactFormValues = z.infer<typeof contactFormSchema>
@@ -68,9 +100,10 @@ export function Contact() {
         serviceId,
         templateId,
         {
-          from_name: data.name,
-          from_email: data.email,
-          subject: data.subject,
+          // email: "rohithkrishnan997@gmail.com",
+          name: data.name,
+          email: data.email,
+          title: data.subject,
           message: data.message,
         },
         publicKey
@@ -252,19 +285,7 @@ export function Contact() {
               </CardContent>
             </Card>
 
-            {/* <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Location</h3>
-                    <p className="text-muted-foreground">San Francisco, CA</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card> */}
+           
           </div>
         </div>
       </div>
