@@ -1,12 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { 
-  SiReact, 
-  SiTailwindcss, 
-  SiNodedotjs, 
-  SiPostgresql, 
-  SiMongodb, 
-  SiGithub, 
-  SiAmazonwebservices, 
+import { SectionHeader } from "@/components/ui/section-header"
+import {
+  SiReact,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiPostgresql,
+  SiMongodb,
+  SiGithub,
+  SiAmazonwebservices,
   SiFigma,
   SiJavascript,
   SiExpress,
@@ -19,8 +20,6 @@ export function Skills() {
       title: "Frontend Development",
       skills: [
         { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
-       
-       
         { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" /> },
         { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#06B6D4]" /> },
         { name: "Redux", icon: <SiRedux className="text-[#764ABC]" /> },
@@ -33,8 +32,6 @@ export function Skills() {
         { name: "Express", icon: <SiExpress className="text-foreground" /> },
         { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
         { name: "PostgreSQL", icon: <SiPostgresql className="text-[#4169E1]" /> },
-        
-     
       ],
     },
     {
@@ -48,35 +45,33 @@ export function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-20 bg-muted/30">
+    <section id="skills" className="py-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-neon-cyan/10 blur-[120px] -z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 text-balance">Skills & Expertise</h2>
-          <p className="text-lg text-muted-foreground text-pretty">
-            I'm constantly learning and improving my skills to stay current with the latest technologies and best
-            practices in web development.
-          </p>
-        </div>
+        <SectionHeader
+          title="Skills & Expertise"
+          subtitle="Leveraging a modern tech stack to build powerful, scalable, and visually stunning applications."
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/10 hover:border-primary/30 transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
+            <Card key={index} className="glass group hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-500">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-2xl font-bold text-gradient">
                   {category.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-3 gap-4">
+              <CardContent className="pt-6">
+                <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
-                      className="group flex flex-col items-center justify-center p-3 rounded-xl bg-muted/50 hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
+                      className="group flex items-center gap-3 px-5 py-2.5 rounded-full glass border-white/10 hover:border-white/20 hover:bg-white/5 transition-all duration-300 hover:scale-105"
                     >
-                      <div className="text-3xl mb-2 transition-transform duration-300 group-hover:scale-110">
+                      <div className="text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_currentColor]">
                         {skill.icon}
                       </div>
-                      <span className="text-[10px] font-medium text-center text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                      <span className="text-sm font-semibold text-foreground/80 group-hover:text-foreground transition-colors">
                         {skill.name}
                       </span>
                     </div>

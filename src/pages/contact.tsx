@@ -7,11 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react"
+import { Mail, Phone, Send, CheckCircle2, AlertCircle, Loader2, Linkedin } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { SectionHeader } from "@/components/ui/section-header"
 import emailjs from "@emailjs/browser"
 
 const contactFormSchema = z.object({
- name: z
+  name: z
     .string()
     .trim()
     .nonempty("Please enter name")
@@ -28,7 +30,7 @@ const contactFormSchema = z.object({
       (val) => !val.startsWith("0"),
       "Email should not start with 0"
     ),
-subject: z
+  subject: z
     .string()
     .trim()
     .nonempty("Please enter subject")
@@ -42,7 +44,7 @@ subject: z
   message: z
     .string()
     .trim()
-     .nonempty("Please enter message")
+    .nonempty("Please enter message")
     .min(10, "Message too short")
     .max(1000, "Message too long")
     .refine(
@@ -129,123 +131,130 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section id="contact" className="py-24 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-neon-purple/5 blur-[150px] -z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 text-balance">Get In Touch</h2>
-          <p className="text-lg text-muted-foreground text-pretty">
-            Ready to start your next project? I'd love to hear from you. Let's discuss how we can bring your ideas to
-            life.
-          </p>
-        </div>
+        <SectionHeader
+          title="Get In Touch"
+          subtitle="Ready to start your next project? I'd love to hear from you. Let's discuss how we can bring your ideas to life."
+        />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
           <div className="lg:col-span-2">
-            <Card>
+            <Card className="glass-neon-border glass shadow-[0_0_50px_rgba(0,0,0,0.3)]">
               <CardHeader>
-                <CardTitle className="text-2xl text-foreground">Send Me a Message</CardTitle>
+                <CardTitle className="text-3xl font-bold text-gradient">Send a Message</CardTitle>
               </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground">
-                        Name
+              <CardContent className="pt-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="space-y-3">
+                      <label htmlFor="name" className="text-sm font-bold text-foreground/80 ml-1">
+                        Full Name
                       </label>
                       <Input
                         id="name"
                         {...register("name")}
-                        placeholder="Your name"
+                        placeholder="John Doe"
                         disabled={isSubmitting}
-                        className={errors.name ? "border-red-500" : ""}
+                        className={cn(
+                          "glass h-14 border-white/10 focus:border-neon-purple/50 focus:ring-neon-purple/20 transition-all text-lg",
+                          errors.name ? "border-red-500/50" : ""
+                        )}
                       />
                       {errors.name && (
-                        <p className="text-xs text-red-500">{errors.name.message}</p>
+                        <p className="text-xs text-red-400 font-medium ml-1">{errors.name.message}</p>
                       )}
                     </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground">
-                        Email
+                    <div className="space-y-3">
+                      <label htmlFor="email" className="text-sm font-bold text-foreground/80 ml-1">
+                        Email Address
                       </label>
                       <Input
                         id="email"
                         type="email"
                         {...register("email")}
-                        placeholder="your.email@example.com"
+                        placeholder="john@example.com"
                         disabled={isSubmitting}
-                        className={errors.email ? "border-red-500" : ""}
+                        className={cn(
+                          "glass h-14 border-white/10 focus:border-neon-cyan/50 focus:ring-neon-cyan/20 transition-all text-lg",
+                          errors.email ? "border-red-500/50" : ""
+                        )}
                       />
                       {errors.email && (
-                        <p className="text-xs text-red-500">{errors.email.message}</p>
+                        <p className="text-xs text-red-400 font-medium ml-1">{errors.email.message}</p>
                       )}
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="block text-sm font-medium text-foreground">
+                  <div className="space-y-3">
+                    <label htmlFor="subject" className="text-sm font-bold text-foreground/80 ml-1">
                       Subject
                     </label>
                     <Input
                       id="subject"
                       {...register("subject")}
-                      placeholder="Project inquiry"
+                      placeholder="Project Inquiry"
                       disabled={isSubmitting}
-                      className={errors.subject ? "border-red-500" : ""}
+                      className={cn(
+                        "glass h-14 border-white/10 focus:border-neon-pink/50 focus:ring-neon-pink/20 transition-all text-lg",
+                        errors.subject ? "border-red-500/50" : ""
+                      )}
                     />
                     {errors.subject && (
-                      <p className="text-xs text-red-500">{errors.subject.message}</p>
+                      <p className="text-xs text-red-400 font-medium ml-1">{errors.subject.message}</p>
                     )}
                   </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground">
+                  <div className="space-y-3">
+                    <label htmlFor="message" className="text-sm font-bold text-foreground/80 ml-1">
                       Message
                     </label>
                     <Textarea
                       id="message"
                       {...register("message")}
                       rows={6}
-                      placeholder="Tell me about your project..."
+                      placeholder="Tell me about your amazing project..."
                       disabled={isSubmitting}
-                      className={errors.message ? "border-red-500" : ""}
+                      className={cn(
+                        "glass border-white/10 focus:border-neon-purple/50 focus:ring-neon-purple/20 transition-all text-lg resize-none",
+                        errors.message ? "border-red-500/50" : ""
+                      )}
                     />
                     {errors.message && (
-                      <p className="text-xs text-red-500">{errors.message.message}</p>
+                      <p className="text-xs text-red-400 font-medium ml-1">{errors.message.message}</p>
                     )}
                   </div>
 
-                  <div className="flex flex-col gap-4">
-                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                  <div className="flex flex-col gap-6">
+                    <Button type="submit" variant="neon" size="lg" className="w-full h-16" disabled={isSubmitting}>
                       {isSubmitting ? (
                         <>
-                          <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                          Sending...
+                          <Loader2 className="h-6 w-6 mr-3 animate-spin" />
+                          Sending Signal...
                         </>
                       ) : (
                         <>
-                          <Send className="h-4 w-4 mr-2" />
+                          <Send className="h-6 w-6 mr-3" />
                           Send Message
                         </>
                       )}
                     </Button>
 
                     {submitStatus === "success" && (
-                      <div className="flex items-center gap-2 text-green-600 bg-green-50 p-3 rounded-md border border-green-200">
-                        <CheckCircle2 className="h-5 w-5" />
-                        <span>Message sent successfully! I'll get back to you soon.</span>
+                      <div className="flex items-center gap-4 glass text-green-400 p-5 rounded-2xl border-green-500/20 animate-in fade-in zoom-in duration-300">
+                        <CheckCircle2 className="h-7 w-7 shrink-0" />
+                        <span className="font-bold">Transmission Successful! I'll oscillate back to you shortly.</span>
                       </div>
                     )}
 
                     {submitStatus === "error" && (
-                      <div className="flex flex-col gap-2 text-red-600 bg-red-50 p-3 rounded-md border border-red-200">
-                        <div className="flex items-center gap-2 font-semibold">
-                          <AlertCircle className="h-5 w-5" />
-                          <span>Failed to send message.</span>
+                      <div className="flex flex-col gap-3 glass text-red-400 p-5 rounded-2xl border-red-500/20 animate-in fade-in zoom-in duration-300">
+                        <div className="flex items-center gap-3 font-bold">
+                          <AlertCircle className="h-7 w-7 shrink-0" />
+                          <span>Interference Detected. Failed to transmit.</span>
                         </div>
-                        {errorMessage && <p className="text-sm opacity-90">{errorMessage}</p>}
-                        <p className="text-xs">
-                          Please check the console for details or try emailing directly below.
-                        </p>
+                        {errorMessage && <p className="text-sm font-medium opacity-80 pl-10">{errorMessage}</p>}
                       </div>
                     )}
                   </div>
@@ -254,38 +263,44 @@ export function Contact() {
             </Card>
           </div>
 
-          <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="flex-shrink-0">
-                    <Mail className="h-6 w-6 text-primary" />
+          <div className="flex flex-col gap-6 animate-float" style={{ animationDelay: "1s" }}>
+            {[
+              { icon: Mail, label: "Email", val: "rohithkrishnan.dev@gmail.com", href: "mailto:rohithkrishnan.dev@gmail.com", color: "neon-purple" },
+              { icon: Phone, label: "Phone", val: "+91 9645 950059", href: "tel:+919645950059", color: "neon-cyan" }
+            ].map((item, i) => (
+              <Card key={i} className="glass group hover:bg-white/5 transition-all duration-300 cursor-pointer overflow-hidden relative">
+                <div className={`absolute top-0 left-0 w-1 h-full bg-${item.color}`} />
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-6">
+                    <div className={`p-4 rounded-2xl bg-${item.color}/10 glass group-hover:scale-110 transition-transform`}>
+                      <item.icon className={`h-8 w-8 text-${item.color}`} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-foreground opacity-60 uppercase tracking-widest text-xs mb-1">{item.label}</h3>
+                      <a href={item.href} className="text-xl font-bold text-foreground group-hover:text-gradient transition-all break-all">{item.val}</a>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Email</h3>
-                   
-                     <a href="mailto:rohithk.krishnan@gmail.com">rohithk.krishnan@gmail.com</a>
-                     
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            ))}
 
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="flex-shrink-0">
-                    <Phone className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Phone</h3>
-                    <a href="tel:+919645950059" className="text-muted-foreground">+91 9645950059</a>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
 
-           
+            <div className="mt-4 glass p-8 rounded-3xl text-center border-white/5 opacity-60">
+              <a
+                href="https://www.linkedin.com/in/rohithkrishnan1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 group"
+              >
+                <Linkedin className="text-cyan-400 text-lg group-hover:scale-110 transition" />
+
+                <p className="text-sm font-medium italic group-hover:text-cyan-400 transition">
+                  Looking for a developer? Let’s connect!
+                </p>
+              </a>
+            </div>
+
+
           </div>
         </div>
       </div>

@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
 
+import { SectionHeader } from "@/components/ui/section-header"
+
 export function Testimonials() {
   const testimonials = [
     {
@@ -44,61 +46,64 @@ export function Testimonials() {
   }
 
   return (
-    <section id="testimonials" className="py-20">
+    <section id="testimonials" className="py-24 relative overflow-hidden bg-[radial-gradient(circle_at_center,oklch(0.65_0.25_320_/_0.05),transparent_70%)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 text-balance">What Clients Say</h2>
-          <p className="text-lg text-muted-foreground text-pretty">
-            Don't just take my word for it. Here's what some of my clients have to say about working with me.
-          </p>
-        </div>
+        <SectionHeader
+          title="What Clients Say"
+          subtitle="Real stories from people I've worked with, showcasing the impact of technical precision and creative design."
+        />
 
-        <div className="max-w-3xl mx-auto">
-          <Card className="relative">
-            <CardContent className="p-8 text-center">
-              <div className="flex justify-center mb-4">
+        <div className="max-w-4xl mx-auto">
+          <Card className="glass-neon-border glass relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-10 opacity-5">
+              <Star className="w-32 h-32 text-neon-purple" />
+            </div>
+            <CardContent className="p-10 md:p-16 text-center">
+              <div className="flex justify-center mb-8 gap-1">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="h-6 w-6 text-neon-cyan fill-neon-cyan/20 drop-shadow-[0_0_8px_rgba(103,232,249,0.5)]" />
                 ))}
               </div>
 
-              <blockquote className="text-lg text-muted-foreground mb-6 text-pretty">
+              <blockquote className="text-2xl md:text-3xl font-medium text-foreground mb-10 text-pretty leading-relaxed italic">
                 "{testimonials[currentIndex].content}"
               </blockquote>
 
-              <div className="flex items-center justify-center space-x-4">
-                <img
-                  src={testimonials[currentIndex].avatar || "/placeholder.svg"}
-                  alt={testimonials[currentIndex].name}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+              <div className="flex items-center justify-center gap-6">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-neon-pink via-neon-purple to-neon-cyan rounded-full blur-md opacity-50" />
+                  <img
+                    src={testimonials[currentIndex].avatar || "/placeholder.svg"}
+                    alt={testimonials[currentIndex].name}
+                    className="w-16 h-16 rounded-full object-cover border-2 border-white/20 relative z-10"
+                  />
+                </div>
                 <div className="text-left">
-                  <div className="font-semibold text-foreground">{testimonials[currentIndex].name}</div>
-                  <div className="text-sm text-muted-foreground">{testimonials[currentIndex].role}</div>
+                  <div className="text-xl font-bold text-foreground tracking-tight">{testimonials[currentIndex].name}</div>
+                  <div className="text-sm font-semibold text-gradient uppercase tracking-widest">{testimonials[currentIndex].role}</div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <div className="flex justify-center items-center space-x-4 mt-8">
-            <Button variant="outline" size="icon" onClick={prevTestimonial} className="rounded-full bg-transparent">
-              <ChevronLeft className="h-4 w-4" />
+          <div className="flex justify-center items-center gap-8 mt-12">
+            <Button variant="neon-outline" size="icon" onClick={prevTestimonial} className="w-14 h-14 rounded-full">
+              <ChevronLeft className="h-6 w-6" />
             </Button>
 
-            <div className="flex space-x-2">
+            <div className="flex gap-3">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
-                  }`}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${index === currentIndex ? "w-8 bg-gradient-to-r from-neon-pink to-neon-purple shadow-[0_0_10px_rgba(168,85,247,0.5)]" : "w-2 bg-white/10"
+                    }`}
                   onClick={() => setCurrentIndex(index)}
                 />
               ))}
             </div>
 
-            <Button variant="outline" size="icon" onClick={nextTestimonial} className="rounded-full bg-transparent">
-              <ChevronRight className="h-4 w-4" />
+            <Button variant="neon-outline" size="icon" onClick={nextTestimonial} className="w-14 h-14 rounded-full">
+              <ChevronRight className="h-6 w-6" />
             </Button>
           </div>
         </div>
