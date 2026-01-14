@@ -77,6 +77,7 @@ export function MovingBackground() {
                         style={{
                             width: `${size}px`,
                             height: `${size}px`,
+                            willChange: "transform"
                         }}
                     />
                 );

@@ -9,8 +9,8 @@ export function Portfolio() {
       title: "E-Commerce Platform",
       description:
         "A modern e-commerce solution built with Node.js, featuring dynamic-filtering and searching option, payment processing, and admin dashboard.",
-      image: "/smartagro-ecom-home.png",
-      tags: ["Node.js", "TypeScript", "Stripe", "Mongodb"],
+      image: "/smartagro.webp",
+      tags: ["Node.js", "React", "Mongodb","Express.js"],
       liveUrl: "https://smartagro.store",
       githubUrl: "#",
     },
@@ -18,9 +18,36 @@ export function Portfolio() {
       title: "Hotel-website",
       description:
         "A responsive static website built with React, TypeScript, and TailwindCSS, showcasing hotel rooms, amenities, and services with a clean, modern design.",
-      image: "/rajadhani-hotel-home.png",
-      tags: ["React", "Node.js", "Socket.io", "MongoDB"],
+      image: "/rajadhanirooms.webp",
+      tags: ["React", "TailwindCSS", "TypeScript"],
       liveUrl: "https://rajadhanirooms.online",
+      githubUrl: "#",
+    },
+    {
+      title: "KTM-website-Clone",
+      description:
+"A responsive KTM website clone built using HTML, CSS, Bootstrap, and JavaScript. This project replicates the official KTM website UI with modern design practices, smooth navigation, interactive components, and mobile-friendly layouts to deliver a seamless user experience." ,  
+   image: "/ktm.png",
+      tags: ["HTML", "CSS", "Bootstrap","Javascript"],
+      liveUrl: "https://ktm-smoky.vercel.app/#",
+      githubUrl: "#",
+    },
+    {
+      title: "LinkedIn-website-Clone",
+      description:
+"A responsive LinkedIn clone built using HTML, CSS, and JavaScript. This project recreates the core LinkedIn UI including feed layout, profile sections, and navigation with interactive components and mobile-first responsive design.",
+      image: "/linkedin.png",
+    tags: ["HTML", "CSS","Javascript"],
+      liveUrl: "https://linked-in-two-delta.vercel.app/",
+      githubUrl: "#",
+    },
+    {
+      title: "MudBricks-Website",
+      description:
+        "A responsive static website built with React, TypeScript, and TailwindCSS, showcasing product detailes, services with a clean, modern design.",
+      image: "/mudbricks.png",
+        tags: ["React", "TailwindCSS", "TypeScript"],
+      liveUrl: "https://www.chaithanniyamudbricks.org.in/",
       githubUrl: "#",
     },
   ];
@@ -44,6 +71,10 @@ export function Portfolio() {
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
+                  width={800}
+                  height={450}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4 backdrop-blur-sm">

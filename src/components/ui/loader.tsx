@@ -23,7 +23,7 @@ export function LoadingScreen() {
 
                         {/* Profile Photo - Optimized loading */}
                         <img
-                            src="/profile.png"
+                            src="/profile.webp"
                             alt="Loading"
                             loading="eager"
                             className="w-full h-full object-cover opacity-50 grayscale scale-110"

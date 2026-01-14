@@ -1,42 +1,15 @@
-import { Card, CardContent } from "@/components/ui/card";
+
 import { SectionHeader } from "@/components/ui/section-header";
-import { Code, Palette, Smartphone, Zap } from "lucide-react";
 import { ProfilePhoto } from "@/components/ui/profile-photo";
 
 export function About() {
-  const features = [
-    {
-      icon: Code,
-      title: "Clean Code",
-      description:
-        "Writing maintainable, scalable, and efficient code following best practices.",
-    },
-    {
-      icon: Palette,
-      title: "Creative Design",
-      description:
-        "Crafting beautiful and intuitive user interfaces that delight users.",
-    },
-    {
-      icon: Smartphone,
-      title: "Responsive",
-      description:
-        "Building applications that work seamlessly across all devices and screen sizes.",
-    },
-    {
-      icon: Zap,
-      title: "Performance",
-      description:
-        "Optimizing applications for speed, accessibility, and user experience.",
-    },
-  ];
-
+ 
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-neon-pink/10 blur-[120px] -z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-          <ProfilePhoto src="/profile.png" />
+          <ProfilePhoto src="/profile.webp" />
 
           <div className="text-center lg:text-left">
             <SectionHeader
@@ -52,7 +25,7 @@ export function About() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-          {features.map((feature, index) => (
+          {/* {features.map((feature, index) => (
             <Card
               key={index}
               className="text-center group hover:scale-105 transition-all duration-500"
@@ -69,7 +42,7 @@ export function About() {
                 </p>
               </CardContent>
             </Card>
-          ))}
+          ))} */}
         </div>
 
         {/* Experience Timeline */}
@@ -79,33 +52,33 @@ export function About() {
             {[
               { year: "2026 - Present", role: "Full-Stack Developer", company: "Freelance", desc: "Building high-performance web applications with React and Node.js." },
 
-{ 
-  year: "Aug 2024 - 2025 ", 
-  role: "Software Developer Trainee", 
-  company: "Brototype", 
-  desc: "Joined Brototype self-learning platform to build real-world projects and strengthen full-stack development skills." 
-},
+              {
+                year: "Aug 2024 - 2025 ",
+                role: "Software Developer Trainee",
+                company: "Brototype",
+                desc: "Joined Brototype self-learning platform to build real-world projects and strengthen full-stack development skills."
+              },
 
-{ 
-  year: "2023 - 2024", 
-  role: "Development Manager", 
-  company: "SBI Life Insurance", 
-  desc: "Managed 15+ agents, developed leadership, communication, and analytical skills." 
-},
+              {
+                year: "2023 - 2024",
+                role: "Development Manager",
+                company: "SBI Life Insurance",
+                desc: "Managed 15+ agents, developed leadership, communication, and analytical skills."
+              },
 
-{ 
-  year: "2021 - 2022", 
-  role: "Marketing Executive", 
-  company: "Elanadu Milk Pvt Ltd", 
-  desc: "Recruited agents and coordinated sales operations to improve market reach and sales performance." 
-},
+              {
+                year: "2021 - 2022",
+                role: "Marketing Executive",
+                company: "Elanadu Milk Pvt Ltd",
+                desc: "Recruited agents and coordinated sales operations to improve market reach and sales performance."
+              },
 
-             { 
-  year: "2021", 
-  role: "MBA (Finance & Marketing)", 
-  company: "University", 
-  desc: "Completed MBA specialization in Finance and Marketing." 
-},
+              {
+                year: "2021",
+                role: "MBA (Finance & Marketing)",
+                company: "University",
+                desc: "Completed MBA specialization in Finance and Marketing."
+              },
 
             ].map((exp, i) => (
               <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">

@@ -1,40 +1,47 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Hero } from "./pages/hero";
-import { About } from "./pages/about";
-import { Portfolio } from "./pages/portfolio";
-import { Skills } from "./pages/skills";
-import { Testimonials } from "./pages/testimonials";
-import { Contact } from "./pages/contact";
 import { Navigation } from "@/components/navigation";
 import { MovingBackground } from "@/components/ui/background";
 import { LoadingScreen } from "@/components/ui/loader";
+
+const Hero = lazy(() => import("./pages/hero").then(module => ({ default: module.Hero })));
+const About = lazy(() => import("./pages/about").then(module => ({ default: module.About })));
+const Portfolio = lazy(() => import("./pages/portfolio").then(module => ({ default: module.Portfolio })));
+const Skills = lazy(() => import("./pages/skills").then(module => ({ default: module.Skills })));
+const Testimonials = lazy(() => import("./pages/testimonials").then(module => ({ default: module.Testimonials })));
+const Contact = lazy(() => import("./pages/contact").then(module => ({ default: module.Contact })));
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
+    // Wait for critical resources if needed, but remove manual 1.5s delay
+    const handleLoad = () => setIsLoading(false);
+
+    if (document.readyState === "complete") {
       setIsLoading(false);
-    }, 2500);
-    return () => clearTimeout(timer);
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
   }, []);
 
   return (
     <main className="min-h-screen relative bg-[#020617]">
       <AnimatePresence>
-        {isLoading && <LoadingScreen />}
+        {isLoading && <LoadingScreen key="loader" />}
       </AnimatePresence>
 
       <MovingBackground />
       <Navigation />
-      <Hero />
-      <About />
-      <Portfolio />
-      <Skills />
-      <Testimonials />
-      <Contact />
+      <Suspense fallback={<div className="min-h-screen bg-[#020617]" />}>
+        <Hero />
+        <About />
+        <Portfolio />
+        <Skills />
+        <Testimonials />
+        <Contact />
+      </Suspense>
     </main>
   );
 }
