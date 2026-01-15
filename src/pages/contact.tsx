@@ -236,7 +236,7 @@ export function Contact() {
                       ) : (
                         <>
                           <Send className="h-6 w-6 mr-3" />
-                          Send Message
+                         Reach Out
                         </>
                       )}
                     </Button>
@@ -244,7 +244,7 @@ export function Contact() {
                     {submitStatus === "success" && (
                       <div className="flex items-center gap-4 glass text-green-400 p-5 rounded-2xl border-green-500/20 animate-in fade-in zoom-in duration-300">
                         <CheckCircle2 className="h-7 w-7 shrink-0" />
-                        <span className="font-bold">Transmission Successful! I'll oscillate back to you shortly.</span>
+                        <span className="font-bold">Message sent! I'll be get back to you shortly.</span>
                       </div>
                     )}
 
