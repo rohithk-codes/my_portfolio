@@ -34,12 +34,29 @@ export default function Home() {
 
       <MovingBackground />
       <Navigation />
-      <Suspense fallback={<div className="min-h-screen bg-[#020617]" />}>
+
+      {/* Individual Suspense boundaries allow components to load independently */}
+      <Suspense fallback={<div className="min-h-[80vh] bg-[#020617]" />}>
         <Hero />
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[60vh] bg-[#020617]" />}>
         <About />
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[80vh] bg-[#020617]" />}>
         <Portfolio />
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[60vh] bg-[#020617]" />}>
         <Skills />
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[60vh] bg-[#020617]" />}>
         <Testimonials />
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[60vh] bg-[#020617]" />}>
         <Contact />
       </Suspense>
     </main>

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowDown } from "lucide-react"
 import {
@@ -14,19 +13,9 @@ import {
   SiGmail,
   SiTypescript,
   SiAmazonwebservices,
-
 } from "react-icons/si"
 
 export function Hero() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   const handleDownloadResume = () => {
     const link = document.createElement("a")
     link.href = "https://drive.google.com/uc?export=download&id=1LRtHMcKI-XCsZU3v_oZiMYg9_U6QlJvs"
@@ -168,7 +157,7 @@ export function Hero() {
 
               {/* Inner Ring */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                {innerSkills.filter((_, i) => !isMobile || i < 2).map((skill, i) => (
+                {innerSkills.map((skill, i) => (
                   <div
                     key={i}
                     className="absolute animate-orbit-inner"
@@ -183,7 +172,7 @@ export function Hero() {
 
               {/* Middle Ring */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                {middleSkills.filter((_, i) => !isMobile || i < 2).map((skill, i) => (
+                {middleSkills.map((skill, i) => (
                   <div
                     key={i}
                     className="absolute animate-orbit-middle"
