@@ -3,12 +3,13 @@ import { AnimatePresence, MotionConfig } from "framer-motion";
 import { Navigation } from "@/components/navigation";
 import { MovingBackground } from "@/components/ui/background";
 import { LoadingScreen } from "@/components/ui/loader";
+import { SectionSkeleton, HeroSkeleton, AboutSkeleton, SkillsSkeleton } from "@/components/section-skeletons";
 
 const Hero = lazy(() => import("./pages/hero").then(module => ({ default: module.Hero })));
 const About = lazy(() => import("./pages/about").then(module => ({ default: module.About })));
 const Portfolio = lazy(() => import("./pages/portfolio").then(module => ({ default: module.Portfolio })));
 const Skills = lazy(() => import("./pages/skills").then(module => ({ default: module.Skills })));
-const Testimonials = lazy(() => import("./pages/testimonials").then(module => ({ default: module.Testimonials })));
+// const Testimonials = lazy(() => import("./pages/testimonials").then(module => ({ default: module.Testimonials })));
 const Contact = lazy(() => import("./pages/contact").then(module => ({ default: module.Contact })));
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // Wait for critical resources if needed, but remove manual 1.5s delay
+    // Wait for critical resources
     const handleLoad = () => setIsLoading(false);
 
     if (document.readyState === "complete") {
@@ -44,29 +45,29 @@ export default function Home() {
       <Navigation />
 
       {/* Hero section stays animated as requested */}
-      <Suspense fallback={<div className="min-h-[80vh] bg-[#020617]" />}>
+      <Suspense fallback={<HeroSkeleton />}>
         <Hero />
       </Suspense>
 
       {/* Non-hero sections have animations disabled on mobile for performance */}
       <MotionConfig reducedMotion={isMobile ? "always" : "user"}>
-        <Suspense fallback={<div className="min-h-[60vh] bg-[#020617]" />}>
+        <Suspense fallback={<AboutSkeleton />}>
           <About />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[80vh] bg-[#020617]" />}>
+        <Suspense fallback={<SectionSkeleton />}>
           <Portfolio />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[60vh] bg-[#020617]" />}>
+        <Suspense fallback={<SkillsSkeleton />}>
           <Skills />
         </Suspense>
 
-        <Suspense fallback={<div className="min-h-[60vh] bg-[#020617]" />}>
+        {/* <Suspense fallback={<SectionSkeleton />}>
           <Testimonials />
-        </Suspense>
+        </Suspense> */}
 
-        <Suspense fallback={<div className="min-h-[60vh] bg-[#020617]" />}>
+        <Suspense fallback={<SectionSkeleton />}>
           <Contact />
         </Suspense>
       </MotionConfig>
