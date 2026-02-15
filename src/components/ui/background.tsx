@@ -5,18 +5,23 @@ import { useEffect, useState } from "react"
 
 export function MovingBackground() {
     const [mounted, setMounted] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
 
     useEffect(() => {
         setMounted(true)
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768)
+        checkMobile()
+        window.addEventListener("resize", checkMobile)
+        return () => window.removeEventListener("resize", checkMobile)
     }, [])
 
     if (!mounted) return null
 
     return (
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#020617]">
-            {/* Optimized Dynamic Orbs - Reduced to 2 for performance */}
+            {/* Optimized Dynamic Orbs - Hidden on mobile if needed, but handled by reduced motion */}
             <motion.div
-                animate={{
+                animate={isMobile ? {} : {
                     x: [0, 80, 0],
                     y: [0, -80, 0],
                 }}
@@ -28,7 +33,7 @@ export function MovingBackground() {
                 className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-neon-purple/15 blur-[120px] rounded-full mix-blend-screen"
             />
             <motion.div
-                animate={{
+                animate={isMobile ? {} : {
                     x: [0, -80, 0],
                     y: [0, 80, 0],
                 }}
@@ -42,15 +47,15 @@ export function MovingBackground() {
 
             {/* Grid Pattern Layer */}
             <div
-                className="absolute inset-0 opacity-[0.05]"
+                className="absolute inset-0 opacity-[0.03]"
                 style={{
                     backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
                     backgroundSize: "80px 80px",
                 }}
             />
 
-            {/* Reduced Particle Field - Optimized for mobile/low-end performance */}
-            {[...Array(15)].map((_, i) => {
+            {/* Particle Field - Disabled on mobile for buttery smooth scrolling */}
+            {!isMobile && [...Array(15)].map((_, i) => {
                 const size = Math.random() * 1.5 + 0.5;
                 const duration = Math.random() * 10 + 20;
                 const delay = Math.random() * -30;

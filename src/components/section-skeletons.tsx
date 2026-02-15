@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 export function SectionSkeleton() {
     return (
-        <div className="py-24 container mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="py-24 container mx-auto px-4 sm:px-6 lg:px-8 space-y-12 min-h-[600px]">
             <div className="space-y-4 flex flex-col items-center text-center">
                 <Skeleton className="h-12 w-64 mx-auto" />
                 <Skeleton className="h-6 w-96 max-w-full mx-auto" />
@@ -46,7 +46,7 @@ export function HeroSkeleton() {
 
 export function AboutSkeleton() {
     return (
-        <div className="py-24 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="py-24 container mx-auto px-4 sm:px-6 lg:px-8 min-h-[800px]">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
                 <div className="flex justify-center">
                     <Skeleton className="h-[400px] w-[400px] rounded-full sm:rounded-[40px]" />
@@ -72,7 +72,7 @@ export function AboutSkeleton() {
 
 export function SkillsSkeleton() {
     return (
-        <div className="py-24 container mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="py-24 container mx-auto px-4 sm:px-6 lg:px-8 space-y-12 min-h-[500px]">
             <div className="space-y-4 flex flex-col items-center text-center">
                 <Skeleton className="h-12 w-64 mx-auto" />
                 <Skeleton className="h-6 w-96 max-w-full mx-auto" />
