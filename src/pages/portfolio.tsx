@@ -6,13 +6,59 @@ import { SectionHeader } from "@/components/ui/section-header";
 export function Portfolio() {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "PepperPot - Food Ordering App",
       description:
-        "A modern e-commerce solution built with Node.js, featuring dynamic-filtering and searching option, payment processing, and admin dashboard.",
+        "A full-stack food ordering application built using the Repository and Service Layer patterns for clean architecture and scalability. Features include real-time order updates with WebSockets, secure Razorpay payment integration, dynamic menu browsing, cart management, and an admin dashboard for restaurant management.",
+      image: "/pepper-pot.png",
+      tags: [
+        "Node.js",
+        "React",
+        "MongoDB",
+        "Express.js",
+        "WebSocket",
+        "Razorpay",
+        "JavaScript",
+      ],
+      liveUrl: "https://pepperpotrestaurant.com",
+      githubUrl: "#",
+    },
+    {
+      title: "Smart Agro - E-Commerce Platform ",
+      description:
+        "A full-featured agricultural e-commerce platform developed using the MVC architecture. Includes product catalog management, dynamic filtering and search, secure authentication, order processing, payment integration, and an admin dashboard for managing products, users, and sales.",
       image: "/smartagro.webp",
-      tags: ["Node.js", "React", "Mongodb","Express.js"],
+      tags: ["Node.js", "React", "MongoDB", "Express.js", "MVC"],
       liveUrl: "https://smartagro.store",
       githubUrl: "#",
+    },
+
+    {
+      title: "CrackIt-Interview Preparation Platform",
+      description:
+        "A scalable interview preparation platform built using Repository and Service Layer patterns to ensure modular and maintainable backend architecture. Provides categorized questions, coding practice modules, progress tracking, and user authentication with a clean and responsive interface.",
+      image: "/interview-prep.png",
+      tags: ["Node.js", "React", "MongoDB", "Express.js"],
+      liveUrl: "https://github.com/rohithk-codes/interview-preparation-app",
+      githubUrl: "https://github.com/rohithk-codes/interview-preparation-app",
+    },
+
+    {
+      title: "Gym Buddy — E-Commerce Platform",
+      description:
+        "A full-stack gym equipment e-commerce platform built using the MVC architecture. The backend was developed with Node.js and Express, while the frontend uses EJS for server-side rendering. Features include product and category management, variant-based pricing, user authentication, cart and checkout flow, order management, and secure Razorpay payment integration, along with an admin dashboard for complete store control.",
+      image: "/gy-buddy.png",
+      tags: ["Node.js", "Express.js", "MongoDB", "EJS", "MVC", "Razorpay"],
+      liveUrl: "https://github.com/rohithk-codes/Gym-buddy",
+      githubUrl: "https://github.com/rohithk-codes/Gym-buddy",
+    },
+
+    {
+      title: "Web-Design-Challenge",
+      description:"This is a webdesign challenge that is created with react",
+      image: "/drug-free.png",
+      tags: ["Node.js", "React", "Mongodb", "Express.js"],
+      liveUrl: "https://github.com/rohithk-codes/say-no-to-drug",
+      githubUrl: "https://github.com/rohithk-codes/say-no-to-drug",
     },
     {
       title: "Hotel-website",
@@ -26,18 +72,18 @@ export function Portfolio() {
     {
       title: "KTM-website-Clone",
       description:
-"A responsive KTM website clone built using HTML, CSS, Bootstrap, and JavaScript. This project replicates the official KTM website UI with modern design practices, smooth navigation, interactive components, and mobile-friendly layouts to deliver a seamless user experience." ,  
-   image: "/ktm.png",
-      tags: ["HTML", "CSS", "Bootstrap","Javascript"],
+        "A responsive KTM website clone built using HTML, CSS, Bootstrap, and JavaScript. This project replicates the official KTM website UI with modern design practices, smooth navigation, interactive components, and mobile-friendly layouts to deliver a seamless user experience.",
+      image: "/ktm.png",
+      tags: ["HTML", "CSS", "Bootstrap", "Javascript"],
       liveUrl: "https://ktm-smoky.vercel.app/#",
       githubUrl: "#",
     },
     {
       title: "LinkedIn-website-Clone",
       description:
-"A responsive LinkedIn clone built using HTML, CSS, and JavaScript. This project recreates the core LinkedIn UI including feed layout, profile sections, and navigation with interactive components and mobile-first responsive design.",
+        "A responsive LinkedIn clone built using HTML, CSS, and JavaScript. This project recreates the core LinkedIn UI including feed layout, profile sections, and navigation with interactive components and mobile-first responsive design.",
       image: "/linkedin.png",
-    tags: ["HTML", "CSS","Javascript"],
+      tags: ["HTML", "CSS", "Javascript"],
       liveUrl: "https://linked-in-two-delta.vercel.app/",
       githubUrl: "#",
     },
@@ -46,9 +92,9 @@ export function Portfolio() {
       description:
         "A responsive static website built with React, TypeScript, and TailwindCSS, showcasing product detailes, services with a clean, modern design.",
       image: "/mudbricks.png",
-        tags: ["React", "TailwindCSS", "TypeScript"],
+      tags: ["React", "TailwindCSS", "TypeScript"],
       liveUrl: "https://www.chaithanniyamudbricks.org.in/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/rohithk-codes/static-web",
     },
   ];
 
@@ -78,7 +124,12 @@ export function Portfolio() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4 backdrop-blur-sm">
-                  <Button variant="glass" size="sm" className="h-10 px-4 rounded-full" asChild>
+                  <Button
+                    variant="glass"
+                    size="sm"
+                    className="h-10 px-4 rounded-full"
+                    asChild
+                  >
                     <a
                       href={project.liveUrl}
                       target="_blank"
@@ -88,7 +139,12 @@ export function Portfolio() {
                       Live Demo
                     </a>
                   </Button>
-                  <Button variant="glass" size="sm" className="h-10 px-4 rounded-full border-white/20" asChild>
+                  <Button
+                    variant="glass"
+                    size="sm"
+                    className="h-10 px-4 rounded-full border-white/20"
+                    asChild
+                  >
                     <a
                       href={project.githubUrl}
                       target="_blank"
