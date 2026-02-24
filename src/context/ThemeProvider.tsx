@@ -19,7 +19,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       return localStorage.getItem('theme') as Theme;
     }
     // Default to 'light' if nothing is in local storage
-    return 'light';
+    return 'dark';
   };
 
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
