@@ -345,21 +345,19 @@
     }
 
     /* 
-       Disable backdrop-blur on all elements within these sections. 
-       This is the primary cause of rendering lag on mobile.
+       Disable backdrop-blur on cards and sections. 
+       This is the primary cause of rendering lag ("slow loading") on mobile.
     */
-    * {
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
-    }
-
     .glass {
+      backdrop-filter: none !important;
       background: var(--card) !important;
       border: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
-    /* Hide heavy decorative background blurs */
-    [class*="blur-"] {
+    /* Hide heavy decorative background blurs that slow down scrolling */
+    .blur-\[120px\],
+    .blur-\[80px\],
+    .blur-\[60px\] {
       display: none !important;
     }
 
@@ -369,8 +367,7 @@
     }
 
     /* Ensure cards still look good but remain static */
-    [data-slot="card"],
-    .card {
+    [data-slot="card"] {
       transform: none !important;
       box-shadow: none !important;
     }
