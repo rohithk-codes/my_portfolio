@@ -141,6 +141,7 @@ export function Hero() {
                     <img
                       src="/profile.webp"
                       alt="Tech Arsenal"
+                      fetchPriority="high"
                       className="absolute inset-0 w-full h-full object-cover opacity-30"
                     />
                     <div className="absolute inset-0 bg-gradient-to-tr from-neon-purple/20 via-transparent to-neon-cyan/20 animate-rotate-slow" />

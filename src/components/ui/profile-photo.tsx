@@ -36,6 +36,8 @@ export function ProfilePhoto({ src, className }: ProfilePhotoProps) {
                         <img
                             src={src}
                             alt="Profile"
+                            loading="eager"
+                            fetchPriority="high"
                             className="w-full h-full object-cover rounded-[1.8rem] transition-transform duration-700 group-hover:scale-110"
                         />
 

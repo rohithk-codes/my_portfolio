@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import ThemeToggle from "../context/ThemeToggle"
 
+
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -23,7 +24,6 @@ export function Navigation() {
     { href: "#about", label: "About" },
     { href: "#portfolio", label: "Portfolio" },
     { href: "#skills", label: "Skills" },
-    { href: "#testimonials", label: "Testimonials" },
     { href: "#contact", label: "Contact" },
   ]
 
@@ -37,7 +37,7 @@ export function Navigation() {
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center">
           <div className="text-2xl font-bold tracking-tighter text-gradient">
-            RK
+            <a href="#home">RK</a>
           </div>
 
           {/* Desktop Navigation */}
