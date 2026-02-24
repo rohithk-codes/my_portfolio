@@ -17,12 +17,7 @@ import {
 
 export function Hero() {
   const handleDownloadResume = () => {
-    const link = document.createElement("a")
-    link.href = "/Rohith_Full_Stack_Developer_Resume.pdf"
-    link.download = "Rohith_Full_Stack_Developer_Resume.pdf"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    window.open("/Rohith_Full_Stack_Developer_Resume.pdf", "_blank")
   }
 
   // Galaxy Layers
