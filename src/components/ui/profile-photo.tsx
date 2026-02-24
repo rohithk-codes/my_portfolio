@@ -1,13 +1,23 @@
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 interface ProfilePhotoProps {
     src: string
     className?: string
-    isMobile?: boolean
+
 }
 
-export function ProfilePhoto({ src, className, isMobile }: ProfilePhotoProps) {
+export function ProfilePhoto({ src, className }: ProfilePhotoProps) {
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768)
+        checkMobile()
+        window.addEventListener("resize", checkMobile)
+        return () => window.removeEventListener("resize", checkMobile)
+    }, [])
+
     return (
         <motion.div
             initial={isMobile ? false : { opacity: 0, scale: 0.9 }}
@@ -16,10 +26,10 @@ export function ProfilePhoto({ src, className, isMobile }: ProfilePhotoProps) {
         >
             {/* Floating Animation Wrapper */}
             <motion.div
-                animate={{
+                animate={isMobile ? false : {
                     y: [0, -20, 0],
                 }}
-                transition={{
+                transition={isMobile ? { duration: 0 } : {
                     duration: 6,
                     repeat: Infinity,
                     ease: "easeInOut",
