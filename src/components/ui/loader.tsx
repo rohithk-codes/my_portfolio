@@ -5,7 +5,7 @@ export function LoadingScreen() {
         <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
+            transition={{ duration: 3, ease: "easeInOut" }}
             className="fixed inset-0 z-[100] flex items-center justify-center bg-[#020617] backdrop-blur-3xl will-change-opacity"
         >
             <div className="relative flex flex-col items-center">

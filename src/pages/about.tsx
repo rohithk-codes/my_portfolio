@@ -3,13 +3,13 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { ProfilePhoto } from "@/components/ui/profile-photo";
 
 export function About() {
- 
+
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-neon-pink/10 blur-[120px] -z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-          <ProfilePhoto src="/profile.webp" />
+          <ProfilePhoto src="/profile.webp" isMobile={typeof window !== 'undefined' && window.innerWidth <= 768} />
 
           <div className="text-center lg:text-left">
             <SectionHeader

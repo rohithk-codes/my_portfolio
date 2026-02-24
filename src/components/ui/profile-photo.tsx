@@ -4,13 +4,14 @@ import { cn } from "@/lib/utils"
 interface ProfilePhotoProps {
     src: string
     className?: string
+    isMobile?: boolean
 }
 
-export function ProfilePhoto({ src, className }: ProfilePhotoProps) {
+export function ProfilePhoto({ src, className, isMobile }: ProfilePhotoProps) {
     return (
         <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={isMobile ? false : { opacity: 0, scale: 0.9 }}
+            animate={isMobile ? false : { opacity: 1, scale: 1 }}
             className={cn("relative w-64 h-64 sm:w-80 sm:h-80 mx-auto", className)}
         >
             {/* Floating Animation Wrapper */}
