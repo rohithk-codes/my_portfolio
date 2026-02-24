@@ -1,5 +1,7 @@
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowDown } from "lucide-react"
+import { ArrowDown, CheckCircle2 } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 import {
   SiReact,
   SiTailwindcss,
@@ -16,8 +18,20 @@ import {
 } from "react-icons/si"
 
 export function Hero() {
+  const [downloading, setDownloading] = useState(false)
+
   const handleDownloadResume = () => {
-    window.open("/Rohith_Full_Stack_Developer_Resume.pdf", "_blank")
+    setDownloading(true)
+    const link = document.createElement("a")
+    link.href = "/Rohith_Full_Stack_Developer_Resume.pdf"
+    link.download = "Rohith_Full_Stack_Developer_Resume.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+
+    setTimeout(() => {
+      setDownloading(false)
+    }, 4000)
   }
 
   // Galaxy Layers
@@ -89,6 +103,22 @@ export function Hero() {
                   My Resume
                 </Button>
               </div>
+
+              <AnimatePresence>
+                {downloading && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    className="flex items-center gap-3 glass p-4 rounded-2xl border-green-500/30 mb-8 max-w-xs mx-auto lg:mx-0 shadow-[0_0_20px_rgba(34,197,94,0.2)]"
+                  >
+                    <div className="p-2 rounded-full bg-green-500/10">
+                      <CheckCircle2 className="h-5 w-5 text-green-500 animate-pulse-glow" />
+                    </div>
+                    <span className="text-sm font-bold text-green-400">Resume downloaded successfully!</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <div className="flex justify-center lg:justify-start space-x-6 mb-16">
                 {[
