@@ -82,7 +82,7 @@ export function About() {
 
             ].map((exp, i) => (
               <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-background shadow-[0_0_15px_rgba(168,85,247,0.5)] z-10 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 animation-pulse-glow">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-background shadow-[0_0_15px_rgba(168,85,247,0.5)] z-10 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 animate-pulse-glow">
                   <div className="w-3 h-3 rounded-full bg-neon-purple" />
                 </div>
                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-3xl hover:border-white/20 transition-all duration-300">

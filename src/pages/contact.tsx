@@ -155,7 +155,7 @@ export function Contact() {
                       <Input
                         id="name"
                         {...register("name")}
-                        placeholder="John Doe"
+                        placeholder=""
                         disabled={isSubmitting}
                         className={cn(
                           "glass h-14 border-white/10 focus:border-neon-purple/50 focus:ring-neon-purple/20 transition-all text-lg",
@@ -174,7 +174,7 @@ export function Contact() {
                         id="email"
                         type="email"
                         {...register("email")}
-                        placeholder="john@example.com"
+                        placeholder=""
                         disabled={isSubmitting}
                         className={cn(
                           "glass h-14 border-white/10 focus:border-neon-cyan/50 focus:ring-neon-cyan/20 transition-all text-lg",
@@ -194,7 +194,7 @@ export function Contact() {
                     <Input
                       id="subject"
                       {...register("subject")}
-                      placeholder="Project Inquiry"
+                      placeholder=""
                       disabled={isSubmitting}
                       className={cn(
                         "glass h-14 border-white/10 focus:border-neon-pink/50 focus:ring-neon-pink/20 transition-all text-lg",
@@ -214,7 +214,7 @@ export function Contact() {
                       id="message"
                       {...register("message")}
                       rows={6}
-                      placeholder="Tell me about your amazing project..."
+                      placeholder=""
                       disabled={isSubmitting}
                       className={cn(
                         "glass border-white/10 focus:border-neon-purple/50 focus:ring-neon-purple/20 transition-all text-lg resize-none",
@@ -236,7 +236,7 @@ export function Contact() {
                       ) : (
                         <>
                           <Send className="h-6 w-6 mr-3" />
-                         Reach Out
+                          Reach Out
                         </>
                       )}
                     </Button>

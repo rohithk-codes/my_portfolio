@@ -18,8 +18,8 @@ import {
 export function Hero() {
   const handleDownloadResume = () => {
     const link = document.createElement("a")
-    link.href = "https://drive.google.com/uc?export=download&id=1LRtHMcKI-XCsZU3v_oZiMYg9_U6QlJvs"
-    link.download = "Rohith_Krishnan_Resume.pdf"
+    link.href = "/Rohith_Full_Stack_Developer_Resume.pdf"
+    link.download = "Rohith_Full_Stack_Developer_Resume.pdf"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
